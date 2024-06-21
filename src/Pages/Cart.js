@@ -10,8 +10,8 @@ export const Cart = ({title}) => {
 
   /* 
     useSelector hook is used to acces the state values, 
-    it takes a fucntion in which we provide the value which we want to access
-    
+    it takes a function which we call selector function,
+    it takes the entire state of the store as argument and we can read the desired value and return it
   */
   const products = useSelector(state => state.cartState.cartList);
   const total = useSelector(state => state.cartState.total);

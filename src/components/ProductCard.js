@@ -9,19 +9,26 @@ import './ProductCard.css';
 
 
 export const ProductCard = ({product}) => {
+  // creating a state variable to check if element is in cart or not
   const [isInCart, setIsInCart] = useState(false);
+
+  // using the useDispatch hook to pass the action to store
   const dispatch = useDispatch();
+
+  // accessing the state's cart list variable using useSelector hook
   const cartList = useSelector(state => state.cartState.cartList);
 
-useEffect(() => {
-  const productInCart = cartList.find(cartItem => cartItem.id === product.id);
-  if(productInCart){
-    setIsInCart(true);
-  }else{
-    setIsInCart(false);
-  }
+  // using useEffect hook to continuously check for the products if they are in cart 
+  // passing the cartList as dependency so it will check whenever cartList is upodated
+  useEffect(() => {
+    const productInCart = cartList.find(cartItem => cartItem.id === product.id);
+    if(productInCart){
+      setIsInCart(true);
+    }else{
+      setIsInCart(false);
+    }
 
-}, [cartList, product.id])  
+  }, [cartList, product.id])  
   
 
 

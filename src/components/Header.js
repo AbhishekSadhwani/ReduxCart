@@ -4,6 +4,7 @@ import logo from '../assets/logo.png';
 import './Header.css';
 
 export const Header = () => {
+  // accessing the value of cratList form store state
   const products = useSelector(state => state.cartState.cartList);
   return (
     <header>
